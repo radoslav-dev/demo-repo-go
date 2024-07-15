@@ -30,7 +30,8 @@ jobs:
           context: .
 
       - name: Attest image
-        uses: actions/attest-build-provenance@v1.0.0
+        uses: github-early-access/generate-build-provenance@main
         with:
           subject-name: ghcr.io/${{ github.repository }}
           subject-digest: ${{ steps.push-step.outputs.digest }}
+          push-to-registry: true
