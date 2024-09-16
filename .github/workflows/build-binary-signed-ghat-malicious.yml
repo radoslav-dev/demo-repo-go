@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
       - name: The malicious step
         run: |
           echo "// This is a malicious update" >> main.go
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5
         with:
           go-version: '1.21'
 
@@ -28,12 +28,12 @@ jobs:
           go build -v -o demo-repo-go-binary ./...
 
       - name: Sign artifact
-        uses: actions/attest-build-provenance@v1.0.0
+        uses: actions/attest-build-provenance@897ed5eab6ed058a474202017ada7f40bfa52940 # v1.0.0
         with:
           subject-path: '${{ github.workspace }}/demo-repo-go-binary'
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
         with:
           name: demo-repo-go-binary
           path: demo-repo-go-binary
