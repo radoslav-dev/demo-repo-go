@@ -31,7 +31,7 @@ jobs:
           file : Dockerfile.static
 
       - name: Attest image
-        uses: actions/attest-build-provenance@v1.0.0
+        uses: actions/attest-build-provenance@v2.1.0
         with:
           subject-name: ghcr.io/${{ github.repository }}
           subject-digest: ${{ steps.push-step.outputs.digest }}
